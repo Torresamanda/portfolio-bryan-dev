@@ -1,4 +1,4 @@
-const PORTFOLIO_ORIGIN = 'https://portfolio-bryan-dev.arquivoslimiar.workers.dev';
+const PORTFOLIO_ORIGIN = 'https://portfolio-bryan-app.arquivoslimiar.workers.dev';
 
 const worker = {
   fetch(request) {

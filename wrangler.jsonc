@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "portfolio-bryan-dev",
+  "name": "portfolio-bryan-app",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-11-13",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -8,5 +8,5 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
-  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "portfolio-bryan-dev" }],
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "portfolio-bryan-app" }],
 }
