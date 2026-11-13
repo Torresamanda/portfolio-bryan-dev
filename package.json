@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "pages:deploy": "wrangler pages deploy cloudflare/pages --project-name bryan-portfolio --branch main"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.17",
