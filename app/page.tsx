@@ -8,6 +8,8 @@ import { Recommendations } from './components/recommendations';
 import { Contact } from './components/contact';
 import { Footer } from './components/footer';
 
+export const dynamic = 'force-dynamic';
+
 export const revalidate = 3600;
 
 export default function Home() {

@@ -2,7 +2,6 @@ import { projects as fallbackProjects } from '../data/portfolio';
 
 const GITHUB_USER = 'Bryan-OLima';
 const FEATURED_TOPIC = 'portfolio-destaque';
-const REVALIDATE_SECONDS = 3600;
 const ORDER_TOPIC = /^portfolio-ordem-(\d+)$/;
 
 type GitHubRepository = {
@@ -40,14 +39,17 @@ export async function getProjects(): Promise<{
   reason?: 'unavailable' | 'no_featured';
 }> {
   try {
-    const headers: HeadersInit = { Accept: 'application/vnd.github+json' };
+    const headers: HeadersInit = {
+      Accept: 'application/vnd.github+json',
+      'User-Agent': 'portfolio-bryan-dev',
+    };
     if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 
     const repositories: GitHubRepository[] = [];
     for (let page = 1; ; page++) {
       const response = await fetch(
         `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&page=${page}&type=owner`,
-        { headers, next: { revalidate: REVALIDATE_SECONDS }, signal: AbortSignal.timeout(5000) },
+        { headers, cache: 'no-store', signal: AbortSignal.timeout(5000) },
       );
       if (!response.ok) throw new Error(`GitHub respondeu com ${response.status}`);
       const batch: GitHubRepository[] = await response.json();
