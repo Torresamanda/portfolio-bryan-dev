@@ -1,5 +1,9 @@
 import { ArrowRight } from 'lucide-react';
 
+// Interlagos track geometry adapted from bacinger/f1-circuits (MIT); see THIRD_PARTY_NOTICES.md.
+const interlagosPath =
+  'M68.4 255.3 L87 327.1 L92.8 337.1 L97.8 340 L104 339.3 L110.9 333.6 L118 326.4 L123.3 325.4 L135.3 331.6 L146.6 335.5 L155 336.3 L165.4 334.6 L176.2 329.6 L185.5 321.2 L191.3 312.1 L201.3 280.8 L210.5 245.1 L229.9 169.3 L237.5 140.4 L239.5 131.4 L238.3 125.9 L233.4 121 L224.2 118.4 L201.8 114.5 L193.1 115.4 L184.6 119.1 L177.1 124.5 L168.4 134.8 L142.4 170.6 L125.3 194 L116.9 205.5 L111.5 210.1 L103.1 212.1 L92 211.2 L85.3 208.6 L77.3 203.3 L73.8 197.5 L70.8 186.1 L67.7 168.4 L67.4 158.9 L70.4 153.4 L73.3 152.2 L77.8 152.5 L86.7 158.4 L91.4 160.8 L95.6 161.4 L100.8 160 L106.4 154.1 L107.7 148 L106 142.2 L100.7 135.5 L87.1 121.5 L81.6 110.5 L79.1 97.9 L78.9 90.2 L81.4 86.3 L84.8 85.4 L89 86.6 L109.4 109.5 L114.5 113.3 L120.4 115.5 L126.8 116.4 L135.9 115.6 L144.6 111.7 L151.6 104.6 L161.6 89.5 L178.7 61.4 L179.4 57.6 L177.8 53.4 L171.1 49.1 L150.1 41.3 L143.9 40 L130.7 41.8 L112.7 46.2 L99.3 51.9 L84.7 60.4 L77.5 66.9 L71.9 74.5 L67.6 85.2 L61.3 110.7 L55.4 138.4 L50.8 156.6 L50 169.4 L51.4 184.6 L55.8 203.2 L68.4 255.3 Z';
+
 export function Hero() {
   return (
     <div className="intro">
@@ -27,26 +31,31 @@ export function Hero() {
             <br />
             EM MOVIMENTO ↗
           </div>
-          <svg viewBox="48 60 510 235" fill="none">
+          <svg viewBox="20 30 340 230" fill="none">
             <defs>
-              <pattern id="finish-checks" width="8" height="8" patternUnits="userSpaceOnUse">
-                <rect width="8" height="8" fill="#f5f1e9" />
-                <path d="M0 0h4v4H0zM4 4h4v4H4z" fill="#171717" />
+              <pattern id="finish-checks" width="4" height="4" patternUnits="userSpaceOnUse">
+                <rect width="4" height="4" fill="#fff" />
+                <path d="M0 0h2v2H0zM2 2h2v2H2z" fill="#171717" />
               </pattern>
             </defs>
-            <path
-              id="hero-circuit"
-              className="track-edge"
-              d="M121 121 C100 130 79 148 72 167 C66 184 76 193 96 190 C118 187 130 195 125 211 C122 225 106 235 107 250 C108 268 125 279 151 279 L420 279 C472 279 516 263 531 237 C541 220 531 204 513 204 C493 204 482 222 464 220 C448 218 443 202 450 190 C459 174 478 166 475 151 C472 139 454 137 440 146 L410 164 C397 172 386 166 389 153 L400 110 C403 96 393 88 381 95 L346 116 C335 123 326 120 322 109 L315 89 C310 75 296 72 285 83 L259 111 C249 121 237 121 227 114 L198 91 C181 78 163 81 157 94 C151 105 141 113 121 121 Z"
-            />
-            <use href="#hero-circuit" className="track-interior" />
-            <path
-              className="track-red"
-              d="M121 121 C100 130 79 148 72 167 C66 184 76 193 96 190 C118 187 130 195 125 211 C122 225 106 235 107 250 C108 268 125 279 151 279 L420 279 C472 279 516 263 531 237 C541 220 531 204 513 204 C493 204 482 222 464 220 C448 218 443 202 450 190 C459 174 478 166 475 151 C472 139 454 137 440 146 L410 164 C397 172 386 166 389 153 L400 110 C403 96 393 88 381 95 L346 116 C335 123 326 120 322 109 L315 89 C310 75 296 72 285 83 L259 111 C249 121 237 121 227 114 L198 91 C181 78 163 81 157 94 C151 105 141 113 121 121 Z"
-            />
-            <path className="track-pit" d="M172 260 H295 C306 260 312 267 318 279" />
-            <rect x="210" y="268" width="12" height="22" fill="url(#finish-checks)" stroke="none" />
-            <circle cx="399" cy="153" r="5" className="track-marker" />
+            <g transform="translate(0 290) rotate(-90)">
+              <path id="hero-circuit" className="track-edge" d={interlagosPath} />
+              <use href="#hero-circuit" className="track-interior" />
+              <use href="#hero-circuit" className="track-red" />
+              <path
+                className="track-pit"
+                d="M61 226 C67 229 72 232 74 240 L83 278 C85 286 83 292 80 300"
+              />
+              <rect
+                x="59.4"
+                y="252.3"
+                width="18"
+                height="6"
+                fill="url(#finish-checks)"
+                transform="rotate(-14 68.4 255.3)"
+              />
+              <circle cx="142.4" cy="170.6" r="5" className="track-marker" />
+            </g>
           </svg>
           <div className="art-bottom">
             FOCO NO DETALHE <span>●</span> SEMPRE EM EVOLUÇÃO

@@ -261,7 +261,8 @@ header {
 }
 .hero-art .track-pit {
   stroke: #68645e;
-  stroke-width: 1.5;
+  stroke-width: 2;
+  stroke-linecap: round;
 }
 .hero-art .track-marker {
   fill: var(--red);
